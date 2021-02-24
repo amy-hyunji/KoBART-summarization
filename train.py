@@ -10,7 +10,8 @@ from torch.utils.data import DataLoader, Dataset
 from dataset import KoBARTSummaryDataset
 from transformers import BartForConditionalGeneration, PreTrainedTokenizerFast
 from transformers.optimization import AdamW, get_cosine_schedule_with_warmup
-from kobart import get_pytorch_kobart_model, get_kobart_tokenizer
+from KoBART.kobart.pytorch_kobart import get_pytorch_kobart_model
+from KoBART.kobart.utils import get_kobart_tokenizer
 
 parser = argparse.ArgumentParser(description='KoBART Summarization')
 
@@ -29,12 +30,12 @@ class ArgsBase():
             parents=[parent_parser], add_help=False)
         parser.add_argument('--train_file',
                             type=str,
-                            default='data/train.tsv',
+                            default='data/cleansed_train.tsv',
                             help='train file')
 
         parser.add_argument('--test_file',
                             type=str,
-                            default='data/test.tsv',
+                            default='data/cleansed_test.tsv',
                             help='test file')
 
         parser.add_argument('--batch_size',

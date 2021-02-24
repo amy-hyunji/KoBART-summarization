@@ -1,0 +1,1 @@
+python get_model_binary.py --hparams /home/hyunji/KoBART-summarization/logs/tb_logs/default/version_11/hparams.yaml --model_binary /home/hyunji/KoBART-summarization/logs/kobart_summary-model_chp/epoch=03-val_loss=1.488.ckpt
